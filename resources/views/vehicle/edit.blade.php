@@ -2,7 +2,8 @@
 
 <a href="{{ url('/') }}/vehicle" >Back</a>
 
-<form method="POST" action="{{ url('/vehicle/' . $vehicle->id) }}">
+<form method="POST"
+      action="{{ url('/') }}/vehicle/{{$vehicle->id}}" >
     {{ method_field('PUT') }}
     {{ csrf_field() }}
 

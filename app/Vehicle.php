@@ -7,9 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Vehicle extends Model
 {
     protected $table = 'vehicles';
-
     protected $primaryKey = 'id';
-
     protected $fillable = ['brand', 'series', 'colour', 'year', 'mileage'];
 
     public static function getAll()
@@ -32,9 +30,9 @@ class Vehicle extends Model
           ->get();
     }
 
-    public static function storeItem($item)
+    public static function storeItem($newItem)
     {
-        return self::create($item); //RETURN OBJECT
+        return self::create($newItem); //RETURN OBJECT
     }
 
     public static function updateItem($id,$item)

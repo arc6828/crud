@@ -2,9 +2,13 @@
 
 <a href="{{ url('/') }}/vehicle/create"   > Add New </a>
 
-<form method="GET" action="{{ url('/') }}/vehicle" >
-    <div class="input-group">
-        <input name="search" placeholder="Search..." value="{{ request('search') }}">
+<form method="GET"
+      action="{{ url('/') }}/vehicle" >
+    <div>
+        <input  name="search"
+                placeholder="Search..."
+                value="{{ request('search') }}"
+                />
         <button type="submit">Search</button>
     </div>
 </form>
@@ -27,13 +31,22 @@
             <td>{{ $vehicle->colour }}</td>
             <td>{{ $vehicle->mileage }}</td>
             <td>
-                <a href="{{ url('/') }}/vehicle/{{ $vehicle->id }}"  ><button class="btn btn-info btn-sm"> View</button></a>
-                <a href="{{ url('/') }}/vehicle/{{ $vehicle->id }}/edit"  ><button class="btn btn-primary btn-sm"> Edit</button></a>
+                <a href="{{ url('/') }}/vehicle/{{ $vehicle->id }}"  >
+                  <button>View</button>
+                </a>
+                <a href="{{ url('/') }}/vehicle/{{ $vehicle->id }}/edit"  >
+                  <button>Edit</button>
+                </a>
 
-                <form method="POST" action="{{ url('/vehicle' . '/' . $vehicle->id) }}" accept-charset="UTF-8" style="display:inline">
+                <form method="POST"
+                      action="{{ url('/vehicle' . '/' . $vehicle->id) }}"
+                      style="display:inline">
                     {{ method_field('DELETE') }}
                     {{ csrf_field() }}
-                    <button type="submit"  onclick="return confirm(&quot;Confirm delete?&quot;)"> Delete</button>
+                    <button type="submit"
+                            onclick="return confirm(&quot;Confirm delete?&quot;)">
+                      Delete
+                    </button>
                 </form>
             </td>
         </tr>

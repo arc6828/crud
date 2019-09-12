@@ -22,3 +22,15 @@ Route::get('/vehicle/{id}', 'VehicleController@show');
 Route::get('/vehicle/{id}/edit', 'VehicleController@edit');
 Route::put('/vehicle/{id}', 'VehicleController@update');
 Route::delete('/vehicle/{id}', 'VehicleController@destroy');
+
+Route::get("/teacher" , function (){
+	return view("teacher/index");
+});
+
+Route::get("/student" , function (){
+	return view("student/index");
+});
+
+Route::get("/pricing" , function (){
+	return view("theme1");
+});

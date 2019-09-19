@@ -14,23 +14,35 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::middleware(['auth'])->group(function () {
+    Route::get('/vehicle', 'VehicleController@index');
+    Route::get('/vehicle/create', 'VehicleController@create');
+    Route::post('/vehicle', 'VehicleController@store');
+    Route::get('/vehicle/{id}', 'VehicleController@show');
+    Route::get('/vehicle/{id}/edit', 'VehicleController@edit');
+    Route::put('/vehicle/{id}', 'VehicleController@update');
+    Route::delete('/vehicle/{id}', 'VehicleController@destroy');
 
-Route::get('/vehicle', 'VehicleController@index');
-Route::get('/vehicle/create', 'VehicleController@create');
-Route::post('/vehicle', 'VehicleController@store');
-Route::get('/vehicle/{id}', 'VehicleController@show');
-Route::get('/vehicle/{id}/edit', 'VehicleController@edit');
-Route::put('/vehicle/{id}', 'VehicleController@update');
-Route::delete('/vehicle/{id}', 'VehicleController@destroy');
+    Route::get("/teacher" , function (){
+    	return view("teacher/index");
+    });
 
-Route::get("/teacher" , function (){
-	return view("teacher/index");
+
+    Route::get("/student" , function (){
+    	return view("student/index");
+    });
+    Route::get("/role" , function (){
+    	 echo Auth::user()->profile->role;
+    });
 });
 
-Route::get("/student" , function (){
-	return view("student/index");
-});
+
+
 
 Route::get("/pricing" , function (){
 	return view("theme1");
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

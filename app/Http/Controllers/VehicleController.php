@@ -51,12 +51,9 @@ class VehicleController extends Controller
      */
     public function store(Request $request)
     {
-
-        $requestData = $request->all();
-
-        Vehicle::create($requestData);
-
-        return redirect('vehicle')->with('flash_message', 'Vehicle added!');
+        $newItem = $request->all();
+        $vehicle = Vehicle::storeItem($newItem);
+        return redirect('vehicle');
     }
 
     /**
@@ -69,8 +66,10 @@ class VehicleController extends Controller
     public function show($id)
     {
         $vehicle = Vehicle::findOrFail($id);
-
-        return view('vehicle.show', compact('vehicle'));
+        $data = [
+          "vehicle" => $vehicle,
+        ];
+        return view('vehicle.show', $data);
     }
 
     /**
@@ -82,9 +81,11 @@ class VehicleController extends Controller
      */
     public function edit($id)
     {
-        $vehicle = Vehicle::findOrFail($id);
-
-        return view('vehicle.edit', compact('vehicle'));
+      $vehicle = Vehicle::findOrFail($id);
+      $data = [
+        "vehicle" => $vehicle,
+      ];
+      return view('vehicle.edit', $data);
     }
 
     /**
@@ -97,13 +98,9 @@ class VehicleController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        $requestData = $request->all();
-
-        $vehicle = Vehicle::findOrFail($id);
-        $vehicle->update($requestData);
-
-        return redirect('vehicle')->with('flash_message', 'Vehicle updated!');
+        $item = $request->all();
+        Vehicle::updateItem($id,$item);
+        return redirect('vehicle');
     }
 
     /**
@@ -115,8 +112,7 @@ class VehicleController extends Controller
      */
     public function destroy($id)
     {
-        Vehicle::destroy($id);
-
-        return redirect('vehicle')->with('flash_message', 'Vehicle deleted!');
+        Vehicle::destroyItem($id);
+        return redirect('vehicle');
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Profile;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $profile = Profile::firstOrCreate(
+            ['user_id' => Auth::id()],
+            ['role' => 'guest']
+        );
         return view('home');
     }
 }

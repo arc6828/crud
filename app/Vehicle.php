@@ -10,6 +10,11 @@ class Vehicle extends Model
     protected $primaryKey = 'id';
     protected $fillable = ['brand', 'series', 'colour', 'year', 'mileage'];
 
+    public function user(){
+        return $this->belongsTo('App\User', 'user_id');
+    }
+ 
+
     public static function getAll()
     {
         return self::get();

@@ -19,6 +19,8 @@
             <th>Brand</th>
             <th>Series</th>
             <th>Colour</th>
+            <th>Mileage</th>
+            <th>Owner</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -30,6 +32,7 @@
             <td>{{ $vehicle->series }}</td>
             <td>{{ $vehicle->colour }}</td>
             <td>{{ $vehicle->mileage }}</td>
+            <td>{{ $vehicle->user->name }}</td>
             <td>
                 <a href="{{ url('/') }}/vehicle/{{ $vehicle->id }}"  >
                   <button>View</button>

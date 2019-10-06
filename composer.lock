@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
     "content-hash": "3e7f3d699e76420053355f2e34698659",
-=======
-    "content-hash": "bfd16d61f077905313c63bbcb38edd5e",
->>>>>>> d393aa490b889b28cd06e6b86d8e10debc5f294f
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -3466,7 +3462,6 @@
         },
         {
             "name": "laravelcollective/html",
-<<<<<<< HEAD
             "version": "v5.8.0",
             "source": {
                 "type": "git",
@@ -3477,18 +3472,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/LaravelCollective/html/zipball/0e360143d3476fe4141d267a260c140569fa207b",
                 "reference": "0e360143d3476fe4141d267a260c140569fa207b",
-=======
-            "version": "v5.8.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/LaravelCollective/html.git",
-                "reference": "3a1c9974ea629eed96e101a24e3852ced382eb29"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/3a1c9974ea629eed96e101a24e3852ced382eb29",
-                "reference": "3a1c9974ea629eed96e101a24e3852ced382eb29",
->>>>>>> d393aa490b889b28cd06e6b86d8e10debc5f294f
                 "shasum": ""
             },
             "require": {
@@ -3533,30 +3516,17 @@
             ],
             "authors": [
                 {
-<<<<<<< HEAD
                     "name": "Taylor Otwell",
                     "email": "taylorotwell@gmail.com"
                 },
                 {
                     "name": "Adam Engebretson",
                     "email": "adam@laravelcollective.com"
-=======
-                    "name": "Adam Engebretson",
-                    "email": "adam@laravelcollective.com"
-                },
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylorotwell@gmail.com"
->>>>>>> d393aa490b889b28cd06e6b86d8e10debc5f294f
                 }
             ],
             "description": "HTML and Form Builders for the Laravel Framework",
             "homepage": "https://laravelcollective.com",
-<<<<<<< HEAD
             "time": "2019-03-01T22:53:41+00:00"
-=======
-            "time": "2019-09-05T12:32:25+00:00"
->>>>>>> d393aa490b889b28cd06e6b86d8e10debc5f294f
         },
         {
             "name": "mockery/mockery",

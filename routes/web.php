@@ -49,3 +49,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('book', 'BookController');
 Route::resource('book', 'BookController');
+Route::resource('order', 'OrderController');
+Route::resource('payment', 'PaymentController');
+Route::resource('order-product', 'OrderProductController');
+Route::resource('product', 'ProductController');
+Route::resource('category', 'CategoryController');

@@ -18,6 +18,11 @@
     <input class="form-control" name="quantity" type="number" id="quantity" value="{{ isset($orderproduct->quantity) ? $orderproduct->quantity : ''}}" >
     {!! $errors->first('quantity', '<p class="help-block">:message</p>') !!}
 </div>
+<div class="form-group {{ $errors->has('total') ? 'has-error' : ''}}">
+    <label for="total" class="control-label">{{ 'Total' }}</label>
+    <input class="form-control" name="total" type="number" id="total" value="{{ isset($orderproduct->total) ? $orderproduct->total : ''}}" >
+    {!! $errors->first('total', '<p class="help-block">:message</p>') !!}
+</div>
 
 
 <div class="form-group">

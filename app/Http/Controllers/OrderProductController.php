@@ -25,9 +25,10 @@ class OrderProductController extends Controller
                 ->orWhere('product_id', 'LIKE', "%$keyword%")
                 ->orWhere('user_id', 'LIKE', "%$keyword%")
                 ->orWhere('quantity', 'LIKE', "%$keyword%")
+                ->whereNull('order_id')
                 ->latest()->paginate($perPage);
         } else {
-            $orderproduct = OrderProduct::latest()->paginate($perPage);
+            $orderproduct = OrderProduct::whereNull('order_id')->latest()->paginate($perPage);
         }
 
         return view('order-product.index', compact('orderproduct'));

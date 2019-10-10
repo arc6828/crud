@@ -7,6 +7,10 @@
         {
             "name": "order_id",
             "type": "integer"
+        },
+        {
+            "name": "slip",
+            "type": "file"
         }
     ]
 }

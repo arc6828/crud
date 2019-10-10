@@ -23,6 +23,7 @@ class PaymentController extends Controller
         if (!empty($keyword)) {
             $payment = Payment::where('total', 'LIKE', "%$keyword%")
                 ->orWhere('order_id', 'LIKE', "%$keyword%")
+                ->orWhere('slip', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
             $payment = Payment::latest()->paginate($perPage);
@@ -52,7 +53,11 @@ class PaymentController extends Controller
     {
         
         $requestData = $request->all();
-        
+                if ($request->hasFile('slip')) {
+            $requestData['slip'] = $request->file('slip')
+                ->store('uploads', 'public');
+        }
+
         Payment::create($requestData);
 
         return redirect('payment')->with('flash_message', 'Payment added!');
@@ -98,7 +103,11 @@ class PaymentController extends Controller
     {
         
         $requestData = $request->all();
-        
+                if ($request->hasFile('slip')) {
+            $requestData['slip'] = $request->file('slip')
+                ->store('uploads', 'public');
+        }
+
         $payment = Payment::findOrFail($id);
         $payment->update($requestData);
 

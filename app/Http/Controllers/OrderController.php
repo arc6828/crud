@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Order;
+use App\OrderProduct;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -51,10 +52,13 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $requestData = $request->all();
-        
-        Order::create($requestData);
+        //CREATE ORDER
+        $requestData = $request->all();        
+        $order = Order::create($requestData);
+
+        //UPDATE ORDER ID ในตาราง order_product สำหรับคอลัมน์ที่ order_id เป็น null
+        $order_id = $order->id;
+        OrderProduct::whereNull('order_id')->update(['order_id'=> $order_id]);
 
         return redirect('order')->with('flash_message', 'Order added!');
     }

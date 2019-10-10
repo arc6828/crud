@@ -19,6 +19,7 @@ class CreateOrderProductsTable extends Migration
             $table->integer('product_id')->nullable();
             $table->integer('user_id')->nullable();
             $table->integer('quantity')->nullable();
+            $table->float('total')->nullable();
             });
     }
 

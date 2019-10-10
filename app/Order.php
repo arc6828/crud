@@ -27,5 +27,15 @@ class Order extends Model
      */
     protected $fillable = ['user_id', 'remark', 'total'];
 
+    public function user(){
+        return $this->belongsTo('App\User', 'user_id'); 
+    }
     
+    public function payment(){
+        return $this->hasOne('App\Payment', 'order_id'); 
+    }
+
+    public function order_products(){
+        return $this->hasMany('App\OrderProduct', 'order_id'); 
+    }   
 }

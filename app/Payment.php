@@ -25,7 +25,9 @@ class Payment extends Model
      *
      * @var array
      */
-    protected $fillable = ['total', 'order_id'];
+    protected $fillable = ['total', 'order_id', 'slip'];
 
-    
+    public function order(){
+        return $this->belongsTo('App\Order', 'order_id'); 
+    }
 }

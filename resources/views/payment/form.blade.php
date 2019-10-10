@@ -8,6 +8,11 @@
     <input class="form-control" name="order_id" type="number" id="order_id" value="{{ isset($payment->order_id) ? $payment->order_id : ''}}" >
     {!! $errors->first('order_id', '<p class="help-block">:message</p>') !!}
 </div>
+<div class="form-group {{ $errors->has('slip') ? 'has-error' : ''}}">
+    <label for="slip" class="control-label">{{ 'Slip' }}</label>
+    <input class="form-control" name="slip" type="file" id="slip" value="{{ isset($payment->slip) ? $payment->slip : ''}}" >
+    {!! $errors->first('slip', '<p class="help-block">:message</p>') !!}
+</div>
 
 
 <div class="form-group">

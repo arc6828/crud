@@ -27,7 +27,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $payment->id }}</td>
                                     </tr>
-                                    <tr><th> Total </th><td> {{ $payment->total }} </td></tr><tr><th> Order Id </th><td> {{ $payment->order_id }} </td></tr>
+                                    <tr><th> Total </th><td> {{ $payment->total }} </td></tr><tr><th> Order Id </th><td> {{ $payment->order_id }} </td></tr><tr><th> Slip </th><td> {{ $payment->slip }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

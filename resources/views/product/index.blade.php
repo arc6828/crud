@@ -37,7 +37,9 @@
                                 @foreach($product as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->title }}</td><td>{{ $item->content }}</td><td>{{ $item->sell_price }}</td><td>{{ $item->purchase_price }}</td><td>{{ $item->photo }}</td><td>{{ $item->category_id }}</td>
+                                        <td>{{ $item->title }}</td><td>{{ $item->content }}</td><td>{{ $item->sell_price }}</td><td>{{ $item->purchase_price }}</td>
+                                        <td><img src="{{ url('storage')}}/{{ $item->photo }}" width="100" /></td>
+                                        <td>{{ $item->category_id }}</td>
                                         <td>
                                             <a href="{{ url('/product/' . $item->id) }}" title="View Product"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/product/' . $item->id . '/edit') }}" title="Edit Product"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

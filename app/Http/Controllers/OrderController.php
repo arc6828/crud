@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Order;
 use App\OrderProduct;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -58,7 +59,8 @@ class OrderController extends Controller
 
         //UPDATE ORDER ID ในตาราง order_product สำหรับคอลัมน์ที่ order_id เป็น null
         $order_id = $order->id;
-        OrderProduct::whereNull('order_id')->update(['order_id'=> $order_id]);
+        OrderProduct::whereNull('order_id')
+            ->where('user_id', Auth::id() )->update(['order_id'=> $order_id]);
 
         return redirect('order')->with('flash_message', 'Order added!');
     }

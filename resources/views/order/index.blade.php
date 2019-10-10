@@ -30,14 +30,22 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>User Id</th><th>Remark</th><th>Total</th><th>Actions</th>
+                                        <th>#</th>
+                                        <th>Date</th>
+                                        <th>User Id</th>
+                                        <th>Remark</th>
+                                        <th>Total</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($order as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->user_id }}</td><td>{{ $item->remark }}</td><td>{{ $item->total }}</td>
+                                        <td>{{ $item->created_at }}</td>
+                                        <td>{{ $item->user_id }} {{ $item->user->name }}</td>
+                                        <td>{{ $item->remark }}</td>
+                                        <td>{{ $item->total }}</td>
                                         <td>
                                             <a href="{{ url('/order/' . $item->id) }}" title="View Order"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/order/' . $item->id . '/edit') }}" title="Edit Order"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
@@ -61,3 +69,5 @@
         </div>
     </div>
 @endsection
+
+
